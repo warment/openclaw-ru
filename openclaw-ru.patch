@@ -1,0 +1,59 @@
+diff --git a/scripts/control-ui-i18n.ts b/scripts/control-ui-i18n.ts
+index b2f26e3f..c4faa8d0 100644
+--- a/scripts/control-ui-i18n.ts
++++ b/scripts/control-ui-i18n.ts
+@@ -127,6 +127,7 @@ const LOCALE_ENTRIES: readonly LocaleEntry[] = [
+   { locale: "vi", fileName: "vi.ts", exportName: "vi", languageKey: "vi" },
+   { locale: "nl", fileName: "nl.ts", exportName: "nl", languageKey: "nl" },
+   { locale: "fa", fileName: "fa.ts", exportName: "fa", languageKey: "fa" },
++  { locale: "ru", fileName: "ru.ts", exportName: "ru", languageKey: "ru" },
+ ];
+ 
+ const DEFAULT_GLOSSARY: readonly GlossaryEntry[] = [
+diff --git a/ui/src/i18n/lib/registry.ts b/ui/src/i18n/lib/registry.ts
+index d8517486..1485d7e9 100644
+--- a/ui/src/i18n/lib/registry.ts
++++ b/ui/src/i18n/lib/registry.ts
+@@ -29,6 +29,7 @@ const LAZY_LOCALES: readonly LazyLocale[] = [
+   "vi",
+   "nl",
+   "fa",
++  "ru",
+ ];
+ 
+ const LAZY_LOCALE_REGISTRY: Record<LazyLocale, LazyLocaleRegistration> = {
+@@ -104,6 +105,10 @@ const LAZY_LOCALE_REGISTRY: Record<LazyLocale, LazyLocaleRegistration> = {
+     exportName: "fa",
+     loader: () => import("../locales/fa.ts"),
+   },
++  ru: {
++    exportName: "ru",
++    loader: () => import("../locales/ru.ts"),
++  },
+ };
+ 
+ export const SUPPORTED_LOCALES: ReadonlyArray<Locale> = [DEFAULT_LOCALE, ...LAZY_LOCALES];
+@@ -168,6 +173,9 @@ export function resolveNavigatorLocale(navLang: string): Locale {
+   if (navLang.startsWith("fa")) {
+     return "fa";
+   }
++  if (navLang.startsWith("ru")) {
++    return "ru";
++  }
+   return DEFAULT_LOCALE;
+ }
+ 
+diff --git a/ui/src/i18n/lib/types.ts b/ui/src/i18n/lib/types.ts
+index f1867471..a74f4174 100644
+--- a/ui/src/i18n/lib/types.ts
++++ b/ui/src/i18n/lib/types.ts
+@@ -19,7 +19,8 @@ export type Locale =
+   | "th"
+   | "vi"
+   | "nl"
+-  | "fa";
++  | "fa"
++  | "ru";
+ 
+ export interface I18nConfig {
+   locale: Locale;
