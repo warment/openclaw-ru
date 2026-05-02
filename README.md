@@ -1,6 +1,10 @@
 # OpenClaw — Русская локализация (Russian Locale)
 
-Добавляет полноценную русскую локализацию в панель управления OpenClaw Control UI.
+[![PR to OpenClaw](https://img.shields.io/badge/PR%20to%20OpenClaw-%2376184-blue)](https://github.com/openclaw/openclaw/pull/76184)
+[![Issue](https://img.shields.io/badge/Issue-%2376178-green)](https://github.com/openclaw/openclaw/issues/76178)
+[![License](https://img.shields.io/badge/License-OpenClaw-orange)](LICENSE)
+
+Полноценная русская локализация панели управления [OpenClaw](https://github.com/openclaw/openclaw) Control UI.
 
 ## Что включено
 
@@ -8,72 +12,71 @@
 - **Автоматическое определение** русского языка браузером
 - **Интеграция** с системой i18n OpenClaw (lazy loading)
 
+## Что переведено
+
+| Секция | Описание |
+|--------|----------|
+| Навигация | Чат, Управление, Агент, Настройки |
+| Сессии | Активные ключи, токены, сжатие, контрольные точки |
+| Каналы | Состояние, конфигурация, профили |
+| Агенты | Рабочие пространства, файлы, инструменты, навыки |
+| Cron | Расписание, задания, история запусков |
+| Настройки | Конфигурация, внешний вид, автоматизация |
+| Использование | Токены, стоимость, фильтры, экспорт |
+| Сны | Консолидация памяти, дневник, статистика |
+| Формы | Уведомления, сообщения об ошибках, валидация |
+
 ## Установка
 
-### Вариант 1: Применить патч к исходникам
+### Вариант 1: Применить патч (рекомендуется)
 
-1. Клонируйте репозиторий OpenClaw:
-   ```bash
-   git clone https://github.com/openclaw/openclaw.git
-   cd openclaw
-   ```
+```bash
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+git apply openclaw-ru.patch
+pnpm install
+pnpm build
+npm install -g .
+```
 
-2. Примените патч:
-   ```bash
-   git apply openclaw-ru.patch
-   ```
+### Вариант 2: Ручная установка
 
-3. Установите зависимости и соберите:
-   ```bash
-   pnpm install
-   pnpm build
-   ```
+Скопируйте файлы:
 
-4. Установите глобально:
-   ```bash
-   npm install -g .
-   ```
-
-### Вариант 2: Ручная установка файлов
-
-Скопируйте файлы из `src/` в соответствующие директории исходного кода OpenClaw:
-
-| Файл из этого репозитория | Куда скопировать |
-|---------------------------|------------------|
+| Исходник | Назначение |
+|----------|------------|
 | `src/ui/i18n/locales/ru.ts` | `openclaw/ui/src/i18n/locales/ru.ts` |
 | `src/ui/i18n/lib/types.ts` | `openclaw/ui/src/i18n/lib/types.ts` |
 | `src/ui/i18n/lib/registry.ts` | `openclaw/ui/src/i18n/lib/registry.ts` |
 
-Затем добавьте запись в `scripts/control-ui-i18n.ts`:
+Добавьте в `scripts/control-ui-i18n.ts`:
 ```typescript
 { locale: "ru", fileName: "ru.ts", exportName: "ru", languageKey: "ru" },
 ```
 
+Затем:
+```bash
+pnpm install
+pnpm build
+npm install -g .
+```
+
 ## Использование
 
-После установки:
-
-1. Откройте панель управления OpenClaw (`openclaw dashboard`)
+1. Откройте панель управления: `openclaw dashboard`
 2. Перейдите в **Settings** → **Language**
 3. Выберите **Русский (русский)**
 
-Или установите язык через CLI:
+Или через CLI:
 ```bash
 openclaw config set ui.language ru
 ```
-
-## Что переведено
-
-- Все секции: навигация, чат, сессии, каналы, агенты, крон-задания
-- Настройки: конфигурация, внешний вид, автоматизация
-- Журналы, отладка, использование
-- Формы, уведомления, сообщения об ошибках
 
 ## Технические детали
 
 ### Изменённые файлы
 
-1. **`ui/src/i18n/locales/ru.ts`** — Новый файл, полный перевод всех строк
+1. **`ui/src/i18n/locales/ru.ts`** — Новый файл (1200+ строк)
 2. **`ui/src/i18n/lib/types.ts`** — Добавлен `"ru"` в тип `Locale`
 3. **`ui/src/i18n/lib/registry.ts`** — Добавлен:
    - `"ru"` в массив `LAZY_LOCALES`
@@ -85,13 +88,13 @@ openclaw config set ui.language ru
 
 Русский язык загружается по требованию (lazy loading) — файл `ru.ts` (~52 KB) загружается только при выборе языка, не увеличивая основной бандл.
 
-## Скриншот
+## PR в основной репозиторий
 
-![Russian locale screenshot](screenshot.png)
+Создан [Pull Request #76184](https://github.com/openclaw/openclaw/pull/76184) для включения русского языка в официальный OpenClaw.
 
 ## Лицензия
 
-Перевод распространяется под той же лицензией, что и OpenClaw.
+Перевод распространяется под той же лицензией, что и [OpenClaw](https://github.com/openclaw/openclaw).
 
 ## Автор
 
