@@ -6,6 +6,20 @@
 
 Полноценная русская локализация панели управления [OpenClaw](https://github.com/openclaw/openclaw) Control UI.
 
+## Скриншоты
+
+| Обзор | Сессии |
+|-------|--------|
+| ![Обзор](screenshots/01-overview.png) | ![Сессии](screenshots/02-sessions.png) |
+
+| Использование | Агенты |
+|---------------|--------|
+| ![Использование](screenshots/03-usage.png) | ![Агенты](screenshots/08-agents.png) |
+
+| Сновидения | Cron |
+|------------|------|
+| ![Сновидения](screenshots/05-dreaming.png) | ![Cron](screenshots/04-cron.png) |
+
 ## Что включено
 
 - **Полный перевод** всех строк интерфейса на русский язык (1200+ строк)
