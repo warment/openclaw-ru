@@ -91,7 +91,8 @@ openclaw config set ui.language ru
 ### Изменённые файлы
 
 1. **`ui/src/i18n/locales/ru.ts`** — Новый файл (1200+ строк)
-2. **`ui/src/i18n/lib/types.ts`** — Добавлен `"ru"` в тип `Locale`
+2. **`ui/src/i18n/locales/en.ts`** — Добавлен `ru: "Русский (Russian)"` в блок `languages`
+3. **`ui/src/i18n/lib/types.ts`** — Добавлен `"ru"` в тип `Locale`
 3. **`ui/src/i18n/lib/registry.ts`** — Добавлен:
    - `"ru"` в массив `LAZY_LOCALES`
    - Регистрация загрузчика в `LAZY_LOCALE_REGISTRY`
