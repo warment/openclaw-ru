@@ -12,13 +12,13 @@
 |-------|--------|
 | ![Обзор](screenshots/01-overview.png) | ![Сессии](screenshots/02-sessions.png) |
 
-| Использование | Агенты |
-|---------------|--------|
-| ![Использование](screenshots/03-usage.png) | ![Агенты](screenshots/08-agents.png) |
+| Агенты | Использование |
+|--------|---------------|
+| ![Агенты](screenshots/03-agents.png) | ![Использование](screenshots/04-usage.png) |
 
-| Сновидения | Cron |
-|------------|------|
-| ![Сновидения](screenshots/05-dreaming.png) | ![Cron](screenshots/04-cron.png) |
+| Cron | Сновидения |
+|------|------------|
+| ![Cron](screenshots/05-cron.png) | ![Сновидения](screenshots/06-dreaming.png) |
 
 ## Что включено
 
